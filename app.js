@@ -12,25 +12,25 @@ app.get("/", function (req, res) {
   var today = new Date();
   var currentDay = today.getDay();
   switch (currentDay) {
-    case 0:
+    case 6:
       day = "it's saturday";
       break;
-    case 1:
+    case 0:
       day = "it's sunday";
       break;
-    case 2:
+    case 1:
       day = "it's monday";
       break;
-    case 3:
+    case 2:
       day = "it's tuesday";
       break;
-    case 4:
+    case 3:
       day = "it's wendesday";
       break;
-    case 5:
+    case 4:
       day = "it's thursday";
       break;
-    case 6:
+    case 5:
       day = "it's firday";
       break;
     default:
