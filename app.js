@@ -34,19 +34,21 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
   let newTask = req.body.newItem;
-  tasks.push(newTask);
-  console.log(newTask);
-  res.redirect("/");
+  if (req.body.list === "Work List") {
+    //if the route is "work" then add the new task and go to the work route again
+    workTasks.push(newTask);
+    res.redirect("/work");
+  } else {
+    // else if the route is the home route then add to the list and go to the home route again
+    tasks.push(newTask);
+    res.redirect("/");
+  }
 });
 
 // this is for the work list, access by the /work route
 
 app.get("/work", function (req, res) {
-  res.render("list", { listTitle: "Work list", newListItem: workTasks });
+  res.render("list", { listTitle: "Work List", newListItem: workTasks });
 });
 
-app.post("/work", function (req, res) {
-  let newWorkTask = req.body.newItem;
-  workTasks.push(newWorkTask);
-  res.redirect("/work");
-});
+app.post("/work", function (req, res) {});
